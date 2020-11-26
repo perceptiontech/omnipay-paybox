@@ -1,5 +1,5 @@
 {
-    "name": "fuzion/omnipay-paybox",
+    "name": "daninr/omnipay-paybox",
     "type": "library",
     "description": "Paybox support for Omnipay payment processing library",
     "keywords": [
@@ -11,19 +11,24 @@
         "payment",
         "purchase"
     ],
-    "homepage": "https://github.com/eileenmcnaughton/omnipay-paybox",
+    "homepage": "https://github.com/daninr/omnipay-paybox",
     "license": "MIT",
     "authors": [
         {
             "name": "Eileen McNaughton",
             "email": "eileen@fuzion.co.nz"
+        },
+        {
+            "name": "Dani N",
+            "email": "dnieto@perception.es"
         }
     ],
     "autoload": {
         "psr-4": { "Omnipay\\Paybox\\" : "src/" }
     },
     "require": {
-        "omnipay/common": "~2.0"
+        "php-http/guzzle6-adapter": "^1.0",
+        "omnipay/common": "~3.0"
     },
     "require-dev": {
         "omnipay/tests": "~2.0"
