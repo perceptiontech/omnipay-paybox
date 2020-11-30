@@ -55,6 +55,26 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
         return isset($this->data['Id']) ? $this->data['Id'] : null;
     }
 
+    public function getCbDfv()
+    {
+        return isset($this->data['Cb_dfv']) ? $this->data['Cb_dfv'] : null;
+    }
+
+    public function getTransaction()
+    {
+        return isset($this->data['Transaction']) ? $this->data['Transaction'] : null;
+    }
+
+    public function getCallNumber()
+    {
+        return isset($this->data['Call_number']) ? $this->data['Call_number'] : null;
+    }
+
+    public function getToken()
+    {
+        return isset($this->data['Token']) ? $this->data['Token'] : null;
+    }
+
     public function getMessage()
     {
         return !$this->isSuccessful() ? 'Transaction failed' : null;
@@ -171,11 +191,6 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
     public function getAmount()
     {
         return $this->getParameter('amount');
-    }
-
-    public function getTransaction()
-    {
-        return $this->getParameter('transaction');
     }
 
     public function setIdentifiant($value)
