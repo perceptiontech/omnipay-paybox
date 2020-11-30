@@ -18,6 +18,10 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
             'Mt',
             'Id',
             'Ref',
+            'Transaction',
+            'Call_number',
+            'Cb_dfv',
+            'Token',
             'Erreur',
         );
         foreach ($signed_data_keys as $key) {
@@ -167,6 +171,11 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
     public function getAmount()
     {
         return $this->getParameter('amount');
+    }
+
+    public function getTransaction()
+    {
+        return $this->getParameter('transaction');
     }
 
     public function setIdentifiant($value)
