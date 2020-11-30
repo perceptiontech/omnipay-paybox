@@ -11,18 +11,35 @@ use Omnipay\Common\Message\RequestInterface;
  */
 class SystemCompleteAuthorizeResponse extends AbstractResponse
 {
+    private $extraData = [];
+
     public function __construct(RequestInterface $request, $data)
     {
         $this->request = $request;
-        $signed_data_keys = array(
+
+        $signed_data_keys = [
             'Mt',
             'Id',
             'Ref',
             'Erreur',
-        );
+        ];
+
+        $extraDataKeys = [
+            'Transaction',
+            'Call_number',
+            'Cb_dfv',
+            'Token',
+        ];
+
         foreach ($signed_data_keys as $key) {
             if (isset($data[$key])) {
                 $this->data[$key] = $data[$key];
+            }
+        }
+
+        foreach ($extraDataKeys as $key) {
+            if (isset($data[$key])) {
+                $this->extraData[$key] = $data[$key];
             }
         }
 
@@ -49,6 +66,26 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
     public function getTransactionId()
     {
         return isset($this->data['Id']) ? $this->data['Id'] : null;
+    }
+
+    public function getCbDfv()
+    {
+        return isset($this->extraData['Cb_dfv']) ? $this->extraData['Cb_dfv'] : null;
+    }
+
+    public function getTransaction()
+    {
+        return isset($this->extraData['Transaction']) ? $this->extraData['Transaction'] : null;
+    }
+
+    public function getCallNumber()
+    {
+        return isset($this->extraData['Call_number']) ? $this->extraData['Call_number'] : null;
+    }
+
+    public function getToken()
+    {
+        return isset($this->extraData['Token']) ? $this->extraData['Token'] : null;
     }
 
     public function getMessage()
@@ -162,30 +199,5 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
             $this->signature = null;
             throw new InvalidRequestException('Bad signature format.');
         }
-    }
-
-    public function getAmount()
-    {
-        return $this->getParameter('amount');
-    }
-
-    public function getCbDfv()
-    {
-        return $this->getParameter('Cb_dfv');
-    }
-
-    public function getTransaction()
-    {
-        return $this->getParameter('Transaction');
-    }
-
-    public function getCallNumber()
-    {
-        return $this->getParameter('Call_number');
-    }
-
-    public function getToken()
-    {
-        return $this->getParameter('Token');
     }
 }
