@@ -18,10 +18,6 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
             'Mt',
             'Id',
             'Ref',
-            'Transaction',
-            'Call_number',
-            'Cb_dfv',
-            'Token',
             'Erreur',
         );
         foreach ($signed_data_keys as $key) {
@@ -53,26 +49,6 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
     public function getTransactionId()
     {
         return isset($this->data['Id']) ? $this->data['Id'] : null;
-    }
-
-    public function getCbDfv()
-    {
-        return isset($this->data['Cb_dfv']) ? $this->data['Cb_dfv'] : null;
-    }
-
-    public function getTransaction()
-    {
-        return isset($this->data['Transaction']) ? $this->data['Transaction'] : null;
-    }
-
-    public function getCallNumber()
-    {
-        return isset($this->data['Call_number']) ? $this->data['Call_number'] : null;
-    }
-
-    public function getToken()
-    {
-        return isset($this->data['Token']) ? $this->data['Token'] : null;
     }
 
     public function getMessage()
@@ -193,8 +169,23 @@ class SystemCompleteAuthorizeResponse extends AbstractResponse
         return $this->getParameter('amount');
     }
 
-    public function setIdentifiant($value)
+    public function getCbDfv()
     {
-        return $this->setParameter('amount', $value);
+        return $this->getParameter('Cb_dfv');
+    }
+
+    public function getTransaction()
+    {
+        return $this->getParameter('Transaction');
+    }
+
+    public function getCallNumber()
+    {
+        return $this->getParameter('Call_number');
+    }
+
+    public function getToken()
+    {
+        return $this->getParameter('Token');
     }
 }
