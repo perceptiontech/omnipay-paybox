@@ -1,5 +1,5 @@
 {
-    "name": "daninr/omnipay-paybox",
+    "name": "perceptiontech/omnipay-paybox",
     "type": "library",
     "description": "Paybox support for Omnipay payment processing library",
     "keywords": [
@@ -11,7 +11,7 @@
         "payment",
         "purchase"
     ],
-    "homepage": "https://github.com/daninr/omnipay-paybox",
+    "homepage": "https://github.com/perceptiontech/omnipay-paybox",
     "license": "MIT",
     "authors": [
         {

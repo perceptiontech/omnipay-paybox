@@ -14,7 +14,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "daninr/omnipay-paybox": "*"
+        "perceptiontech/omnipay-paybox": "*"
     }
 }
 ```
