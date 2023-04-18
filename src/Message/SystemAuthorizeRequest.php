@@ -135,7 +135,7 @@ class SystemAuthorizeRequest extends AbstractRequest
             'PBX_DEVISE' => $this->getCurrencyNumeric(),
             'PBX_CMD' => $this->getTransactionId(),
             'PBX_PORTEUR' => $this->getCard()->getEmail(),
-            'PBX_RETOUR' => 'Mt:M;Id:R;Ref:A;Erreur:E;sign:K;3d:G;Transaction:S;Call_number:T;Cb_dfv:D;Token:U',
+            'PBX_RETOUR' => 'Mt:M;Id:R;Ref:A;Erreur:E;sign:K;3d:G;Transaction:S;Call_number:T;Cb_dfv:D',
             'PBX_TIME' => $this->getTime(),
             'PBX_SHOPPINGCART' => $this->getShoppingCart(),
             'PBX_BILLING' => $this->getBilling(),
