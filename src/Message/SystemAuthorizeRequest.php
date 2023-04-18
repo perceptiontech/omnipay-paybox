@@ -93,6 +93,26 @@ class SystemAuthorizeRequest extends AbstractRequest
         return $this->setParameter('identifiant', $value);
     }
 
+    public function getShoppingCart()
+    {
+        return $this->getParameter('shoppingCart');
+    }
+
+    public function setShoppingCart($value)
+    {
+        return $this->setParameter('shoppingCart', $value);
+    }
+
+    public function getBilling()
+    {
+        return $this->getParameter('billing');
+    }
+
+    public function setBilling($value)
+    {
+        return $this->setParameter('billing', $value);
+    }
+
     public function getRequiredCoreFields()
     {
         return [
@@ -117,6 +137,8 @@ class SystemAuthorizeRequest extends AbstractRequest
             'PBX_PORTEUR' => $this->getCard()->getEmail(),
             'PBX_RETOUR' => 'Mt:M;Id:R;Ref:A;Erreur:E;sign:K;3d:G;Transaction:S;Call_number:T;Cb_dfv:D;Token:U',
             'PBX_TIME' => $this->getTime(),
+            'PBX_SHOPPINGCART' => $this->getShoppingCart(),
+            'PBX_BILLING' => $this->getBilling(),
         ];
     }
 
